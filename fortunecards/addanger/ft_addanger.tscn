@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://55nn0knnhseq"]
+
+[ext_resource type="PackedScene" uid="uid://3bkdca7oq15d" path="res://card.tscn" id="1_f2wq4"]
+[ext_resource type="Script" path="res://fortunecards/addanger/ft_addanger_func.gd" id="2_3cjq7"]
+
+[node name="FT_AddAnger" instance=ExtResource("1_f2wq4")]
+fortuneCardScript = ExtResource("2_3cjq7")
+
+[node name="CardRect" parent="." index="2"]
+color = Color(0.547023, 0.188064, 0.232889, 1)
+
+[node name="Cost" parent="." index="3"]
+text = "1"
+
+[node name="CardText" parent="." index="4"]
+text = "+1 Anger
+On Past:
++2 Sanity Per Turn Start
++1 Sadness Per Turn Start
++50 Anger if played on the Three of Swords in the Past Position"

@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://3bkdca7oq15d"]
+
+[ext_resource type="Script" path="res://card.gd" id="1_uxugx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vi3tn"]
+size = Vector2(202, 337.5)
+
+[node name="Card" type="Area2D"]
+script = ExtResource("1_uxugx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(49, 85.25)
+shape = SubResource("RectangleShape2D_vi3tn")
+
+[node name="Highlight" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_left = -54.0
+offset_top = -87.0
+offset_right = 152.0
+offset_bottom = 255.0
+color = Color(0, 0, 0, 1)
+
+[node name="CardRect" type="ColorRect" parent="."]
+offset_left = -50.0
+offset_top = -83.0
+offset_right = 148.0
+offset_bottom = 251.0
+color = Color(0.329158, 0.329158, 0.329158, 1)
+
+[node name="Cost" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+offset_left = -48.0
+offset_top = -84.0
+offset_right = 6.0
+offset_bottom = -47.0
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+theme_override_font_sizes/normal_font_size = 24
+
+[node name="CardText" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+offset_left = -47.0
+offset_top = -15.0
+offset_right = 145.0
+offset_bottom = 252.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 12
+
+[connection signal="gui_input" from="CardRect" to="." method="_on_card_rect_gui_input"]
+[connection signal="mouse_entered" from="CardRect" to="." method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="CardRect" to="." method="_on_color_rect_mouse_exited"]

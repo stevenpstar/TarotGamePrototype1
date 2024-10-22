@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://12fgjbtuwve2"]
+
+[ext_resource type="PackedScene" uid="uid://mujcnoe0lq6m" path="res://TarotCard.tscn" id="1_66vb3"]
+[ext_resource type="Script" path="res://tarotcards/threeofswords/tc_threeofswords.gd" id="2_muqcn"]
+
+[node name="TarotCard" instance=ExtResource("1_66vb3")]
+cardScript = ExtResource("2_muqcn")

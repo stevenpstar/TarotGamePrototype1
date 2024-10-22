@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://en22emxha6u2"]
+
+[ext_resource type="PackedScene" uid="uid://3bkdca7oq15d" path="res://card.tscn" id="1_2h8xg"]
+[ext_resource type="Script" path="res://fortunecards/addsadness/ft_addsadness_func.gd" id="2_af1ca"]
+
+[node name="FT_AddSadness" instance=ExtResource("1_2h8xg")]
+fortuneCardScript = ExtResource("2_af1ca")
+
+[node name="CardRect" parent="." index="2"]
+color = Color(0.159735, 0.315658, 0.60431, 1)
+
+[node name="Cost" parent="." index="3"]
+text = "1"
+
+[node name="CardText" parent="." index="4"]
+text = "Add Sadness
+Past: +2 Sadness on Turn Start
+
++50 Sadness if played on the Three of Swords in the Past Position"

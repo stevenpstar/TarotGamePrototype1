@@ -1,0 +1,126 @@
+[gd_scene load_steps=5 format=3 uid="uid://behd42fy35wtf"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_785pf"]
+[ext_resource type="PackedScene" uid="uid://cr6d3yfoubgjp" path="res://SpiritData.tscn" id="2_triq1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xig1n"]
+size = Vector2(1072, 284)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yfgk"]
+size = Vector2(146, 233)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_785pf")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[node name="Board" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Board"]
+offset_right = 1933.0
+offset_bottom = 1089.0
+color = Color(0.00650846, 0.0116905, 0.0523726, 1)
+
+[node name="CardPos1" type="Marker2D" parent="Board"]
+unique_name_in_owner = true
+position = Vector2(695, 1008)
+
+[node name="CardPos2" type="Marker2D" parent="Board"]
+unique_name_in_owner = true
+position = Vector2(795, 1008)
+
+[node name="CardPos3" type="Marker2D" parent="Board"]
+unique_name_in_owner = true
+position = Vector2(895, 1008)
+
+[node name="CardPos4" type="Marker2D" parent="Board"]
+unique_name_in_owner = true
+position = Vector2(995, 1008)
+
+[node name="CardPos5" type="Marker2D" parent="Board"]
+unique_name_in_owner = true
+position = Vector2(1095, 1008)
+
+[node name="CardPos6" type="Marker2D" parent="Board"]
+unique_name_in_owner = true
+position = Vector2(1195, 1008)
+
+[node name="PlayArea" type="Area2D" parent="Board"]
+unique_name_in_owner = true
+position = Vector2(943, 715)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/PlayArea"]
+position = Vector2(2, -7)
+shape = SubResource("RectangleShape2D_xig1n")
+
+[node name="ColorRect" type="ColorRect" parent="Board/PlayArea"]
+offset_left = -532.0
+offset_top = -146.0
+offset_right = 537.0
+offset_bottom = 134.0
+color = Color(0.00521496, 0.005377, 0.0628018, 1)
+
+[node name="PlayAreaStart" type="Marker2D" parent="Board/PlayArea"]
+unique_name_in_owner = true
+position = Vector2(-500, 0)
+
+[node name="TarotPast" type="Area2D" parent="Board"]
+unique_name_in_owner = true
+position = Vector2(596, 337)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/TarotPast"]
+shape = SubResource("RectangleShape2D_5yfgk")
+
+[node name="ColorRect" type="ColorRect" parent="Board/TarotPast"]
+offset_left = -72.0
+offset_top = -115.0
+offset_right = 71.0
+offset_bottom = 115.0
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="PastStart" type="Marker2D" parent="Board/TarotPast"]
+unique_name_in_owner = true
+position = Vector2(-150, 0)
+
+[node name="TarotPresent" type="Area2D" parent="Board"]
+unique_name_in_owner = true
+position = Vector2(950, 337)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/TarotPresent"]
+shape = SubResource("RectangleShape2D_5yfgk")
+
+[node name="ColorRect" type="ColorRect" parent="Board/TarotPresent"]
+offset_left = -72.0
+offset_top = -115.0
+offset_right = 71.0
+offset_bottom = 115.0
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="TarotFuture" type="Area2D" parent="Board"]
+unique_name_in_owner = true
+position = Vector2(1300, 337)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/TarotFuture"]
+shape = SubResource("RectangleShape2D_5yfgk")
+
+[node name="ColorRect" type="ColorRect" parent="Board/TarotFuture"]
+offset_left = -72.0
+offset_top = -115.0
+offset_right = 71.0
+offset_bottom = 115.0
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="TarotCards" type="Node" parent="Board"]
+unique_name_in_owner = true
+
+[node name="Cards" type="Node2D" parent="Board"]
+unique_name_in_owner = true
+
+[node name="SpiritData" parent="." instance=ExtResource("2_triq1")]
+unique_name_in_owner = true
+angerLevel = 2
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_shape_entered" from="Board/PlayArea" to="." method="_on_play_area_area_shape_entered"]
