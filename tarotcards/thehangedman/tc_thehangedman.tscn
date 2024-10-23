@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs5udq6qyjyud"]
+
+[ext_resource type="PackedScene" uid="uid://mujcnoe0lq6m" path="res://TarotCard.tscn" id="1_ei2jg"]
+[ext_resource type="Script" path="res://tarotcards/theempress/tc_theempress.gd" id="2_j2emh"]
+[ext_resource type="Texture2D" uid="uid://ce8x407yi3a2h" path="res://assets/tarot/thehangedman.jpg" id="3_k4hps"]
+
+[node name="TheHangedMan" instance=ExtResource("1_ei2jg")]
+cardScript = ExtResource("2_j2emh")
+
+[node name="TextureRect" parent="." index="2"]
+texture = ExtResource("3_k4hps")

@@ -21,6 +21,10 @@ var cards_played_past = []
 var cards_played_present = []
 var cards_played_future = []
 
+var tarot_deck = ["death/tc_death.tscn", "fourofcups/tc_fourofcups.tscn",
+	"theempress/tc_theempress.tscn", "thehangedman/tc_thehangedman.tscn", 
+	"threeofswords/tc_threeofswords.tscn"]
+
 var tarot_past
 var tarot_present
 var tarot_future
@@ -35,14 +39,26 @@ var over_play_area = false
 
 func _ready()->void:
 	%PlayerSanity.text = "Sanity: " + str(%Player.sanity)
+	%ProgressBar.value = %SpiritData.angerLevel
+	%SadnessBar.value = %SpiritData.sadnessLevel
 	if !tarot_drawn and GameState == GAME_STATES.PRETAROT:
-		tarot_past = preload("res://tarotcards/threeofswords/tc_threeofswords.tscn").instantiate()
+		tarot_deck.shuffle()
+		var pastString = tarot_deck.pop_front()
+		print("past: ", pastString)
+		print(tarot_deck.size())
+		tarot_past = load("res://tarotcards/" + pastString).instantiate()
 		tarot_past.startingPosition = %TarotPast.global_position
 		
-		tarot_present = preload("res://TarotCard.tscn").instantiate()
+		var presentString = tarot_deck.pop_front()
+		print("present: ", presentString)
+		print(tarot_deck.size())
+		tarot_present = load("res://tarotcards/" + presentString).instantiate()
 		tarot_present.startingPosition = %TarotPresent.global_position
 		
-		tarot_future = preload("res://TarotCard.tscn").instantiate()
+		var futureString = tarot_deck.pop_front()
+		print("future: ", futureString)
+		print(tarot_deck.size())
+		tarot_future = load("res://tarotcards/" + futureString).instantiate()
 		tarot_future.startingPosition = %TarotFuture.global_position
 		
 		%TarotCards.add_child(tarot_past)
@@ -140,6 +156,8 @@ func playCardOnFuture(card)->bool:
 
 func _process(delta: float) -> void:
 	%PlayerSanity.text = "Sanity: " + str(%Player.sanity)
+	%ProgressBar.value = %SpiritData.angerLevel
+	%SadnessBar.value = %SpiritData.sadnessLevel
 	card_hovered = false
 	for index in cards.size():
 		cards[index].setMoveLateral(false, 0, 0)
@@ -158,7 +176,9 @@ func _process(delta: float) -> void:
 			cards[index].setMoveLateral(true, diff, dir)
 
 func loadCard(pos: Vector2):
-	var cardStrings = ["addanger/ft_addanger.tscn", "addsadness/ft_addsadness.tscn"]
+	var cardStrings = ["addanger/ft_addanger.tscn", 
+	"addsadness/ft_addsadness.tscn",
+	"drawthree/ft_draw_3_cards.tscn"]
 	var randomCard = randi_range(0, cardStrings.size()-1)
 	var cardString = "res://fortunecards/" + cardStrings[randomCard]
 	print(cardString)
@@ -198,6 +218,7 @@ func _on_timer_timeout() -> void:
 		if card_count < card_positions.size() and drawXCount > 0:
 			var nextCardPosition: Vector2 = card_positions[card_count].global_position
 			loadCard(nextCardPosition)
+			drawXCount -= 1
 		else:
 			canDraw = false
 			DrawState = DRAW_STATES.TURN_DRAW

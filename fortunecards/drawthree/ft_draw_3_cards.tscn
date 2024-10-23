@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckqbpc40hx5vn"]
+
+[ext_resource type="PackedScene" uid="uid://3bkdca7oq15d" path="res://card.tscn" id="1_cvv2q"]
+[ext_resource type="Script" path="res://fortunecards/drawthree/ft_drawthree.gd" id="2_25sle"]
+
+[node name="ft_draw3cards" instance=ExtResource("1_cvv2q")]
+fortuneCardScript = ExtResource("2_25sle")
+
+[node name="Cost" parent="." index="3"]
+text = "2"
+
+[node name="CardText" parent="." index="4"]
+text = "Draw Up to 3 Fortune Cards"

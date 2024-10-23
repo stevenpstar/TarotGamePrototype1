@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmgb3huk5l25i"]
+
+[ext_resource type="PackedScene" uid="uid://mujcnoe0lq6m" path="res://TarotCard.tscn" id="1_hw84m"]
+[ext_resource type="Script" path="res://tarotcards/death/tc_death.gd" id="2_vaqui"]
+[ext_resource type="Texture2D" uid="uid://2381n7rtehgj" path="res://assets/tarot/death.jpg" id="2_vvid7"]
+
+[node name="TarotCard" instance=ExtResource("1_hw84m")]
+cardScript = ExtResource("2_vaqui")
+
+[node name="TextureRect" parent="." index="2"]
+texture = ExtResource("2_vvid7")

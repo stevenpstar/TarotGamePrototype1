@@ -13,7 +13,7 @@ color = Color(0.159735, 0.315658, 0.60431, 1)
 text = "1"
 
 [node name="CardText" parent="." index="4"]
-text = "Add Sadness
-Past: +2 Sadness on Turn Start
+text = "Reduce Sadness by 2 On Play
+Past: -2 Sadness on Turn Start
 
-+50 Sadness if played on the Three of Swords in the Past Position"
+-10 Sadness if played on the Three of Swords in the Past Position"

@@ -13,7 +13,7 @@ func on_play(spirit: SpiritData, player: Player, callable: Callable)->void:
 func on_play_past(spirit: SpiritData, card: TarotCard, player: Player)->void:
 	player.DrainSanity(cost)
 	if card.id == "ThreeOfSwords":
-		spirit.AddAnger(50)
+		spirit.AddAnger(10)
 	else:
 		spirit.AddAnger(2)
 

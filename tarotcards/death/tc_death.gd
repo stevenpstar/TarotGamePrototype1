@@ -1,7 +1,8 @@
 extends TarotCard
 
 func _init()->void:
-	id = "ThreeOfSwords"
+	id = "Death"
 
 func on_draw(spirit: SpiritData)->void:
 	spirit.AddSadness(20)
+	spirit.AddAnger(20)

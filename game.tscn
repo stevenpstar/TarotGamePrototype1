@@ -147,11 +147,20 @@ offset_bottom = 1080.0
 theme_override_font_sizes/normal_font_size = 32
 
 [node name="ProgressBar" type="ProgressBar" parent="Board"]
-offset_left = 130.0
-offset_top = 22.0
-offset_right = 957.0
-offset_bottom = 49.0
-value = 100.0
+unique_name_in_owner = true
+offset_left = 179.0
+offset_top = 19.0
+offset_right = 1006.0
+offset_bottom = 46.0
+rounded = true
+show_percentage = false
+
+[node name="SadnessBar" type="ProgressBar" parent="Board"]
+unique_name_in_owner = true
+offset_left = 183.0
+offset_top = 80.0
+offset_right = 1006.0
+offset_bottom = 107.0
 rounded = true
 show_percentage = false
 
@@ -176,7 +185,9 @@ text = "Confirm Upgrade"
 
 [node name="SpiritData" parent="." instance=ExtResource("2_triq1")]
 unique_name_in_owner = true
-angerThreshold = 100
+angerThreshold = Vector2(80, 100)
+startingSadnessLevel = 100
+sadnessThreshold = Vector2(0, 20)
 
 [node name="Player" parent="." instance=ExtResource("3_jowpq")]
 unique_name_in_owner = true
